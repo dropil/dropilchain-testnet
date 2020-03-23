@@ -35,6 +35,8 @@ func main() {
 
 	// Read in the configuration file for the sdk
 	config := sdk.GetConfig()
+	config.SetCoinType(495)
+	config.SetFullFundraiserPath("44'/495'/0'/0/0")
 	config.SetBech32PrefixForAccount("drop", "droppub")
 	config.SetBech32PrefixForValidator("dropvaloper", "dropvaloperpub")
 	config.SetBech32PrefixForConsensusNode("dropvalcons", "dropvalconspub")
