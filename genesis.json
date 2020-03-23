@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2020-03-23T19:30:00.00Z",
+  "genesis_time": "2020-03-23T22:00:00.00Z",
   "chain_id": "Dropil-Chain-Poseidon",
   "consensus_params": {
     "block": {
@@ -18,30 +18,52 @@
   },
   "app_hash": "",
   "app_state": {
-    "slashing": {
-      "params": {
-        "max_evidence_age": "120000000000",
-        "signed_blocks_window": "10000",
-        "min_signed_per_window": "0.050000000000000000",
-        "downtime_jail_duration": "600000000000",
-        "slash_fraction_double_sign": "0.050000000000000000",
-        "slash_fraction_downtime": "0.000100000000000000"
+    "gov": {
+      "starting_proposal_id": "1",
+      "deposits": null,
+      "votes": null,
+      "proposals": null,
+      "deposit_params": {
+        "min_deposit": [
+          {
+            "denom": "udrop",
+            "amount": "30000000000"
+          }
+        ],
+        "max_deposit_period": "172800000000000"
       },
-      "signing_infos": {},
-      "missed_blocks": {}
-    },
-    "auth": {
-      "params": {
-        "max_memo_characters": "256",
-        "tx_sig_limit": "7",
-        "tx_size_cost_per_byte": "10",
-        "sig_verify_cost_ed25519": "590",
-        "sig_verify_cost_secp256k1": "1000"
+      "voting_params": {
+        "voting_period": "172800000000000"
+      },
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.500000000000000000",
+        "veto": "0.334000000000000000"
       }
     },
     "accounts": [
       {
         "address": "drop1rw44f7yvqhasd2mm4x2f46c806f6q6lag3wk0e",
+        "coins": [
+          {
+            "denom": "udrop",
+            "amount": "38500000000000"
+          }
+        ],
+        "sequence_number": "0",
+        "account_number": "0",
+        "original_vesting": [],
+        "delegated_free": [],
+        "delegated_vesting": [],
+        "start_time": "0",
+        "end_time": "0",
+        "module_name": "",
+        "module_permissions": [
+          ""
+        ]
+      },
+      {
+        "address": "drop16h69xvs8ejfkldc0g9y9zarmg2e3shvam4f5c7",
         "coins": [
           {
             "denom": "udrop",
@@ -101,26 +123,6 @@
         ]
       },
       {
-        "address": "drop16h69xvs8ejfkldc0g9y9zarmg2e3shvam4f5c7",
-        "coins": [
-          {
-            "denom": "udrop",
-            "amount": "38500000000000"
-          }
-        ],
-        "sequence_number": "0",
-        "account_number": "0",
-        "original_vesting": [],
-        "delegated_free": [],
-        "delegated_vesting": [],
-        "start_time": "0",
-        "end_time": "0",
-        "module_name": "",
-        "module_permissions": [
-          ""
-        ]
-      },
-      {
         "address": "drop1derpqyvksvqsxldq4xsps97aa9k8vweuv0ds05",
         "coins": [
           {
@@ -141,9 +143,6 @@
         ]
       }
     ],
-    "bank": {
-      "send_enabled": true
-    },
     "distribution": {
       "fee_pool": {
         "community_pool": []
@@ -161,9 +160,152 @@
       "delegator_starting_infos": [],
       "validator_slash_events": []
     },
-    "params": null,
+    "auth": {
+      "params": {
+        "max_memo_characters": "256",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000"
+      }
+    },
     "genutil": {
       "gentxs": [
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "Dropil-Chain-Orpheus",
+                    "identity": "",
+                    "website": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.040000000000000000",
+                    "max_rate": "1.000000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "drop16h69xvs8ejfkldc0g9y9zarmg2e3shvam4f5c7",
+                  "validator_address": "dropvaloper16h69xvs8ejfkldc0g9y9zarmg2e3shvamfp2aq",
+                  "pubkey": "dropvalconspub1zcjduepqesx3z998f8hfv39s6yl7ustu6akf9hc454shnmc0faeucwyyzv5q2u40y5",
+                  "value": {
+                    "denom": "udrop",
+                    "amount": "37500000000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "AiDMktlhce7i9r48aTij75kd3tHZlYhrv/UeI2XN14jt"
+                },
+                "signature": "+2hNIMfLzQoly2PYuctYDasOwWlyGz1qLb6A2CSMTOUZp3pi/rObJPKEx45VyOSAK+4Ib/TbP54XN19jBfbnCg=="
+              }
+            ],
+            "memo": "3ea0852e3158e6aeee5bbafa85902f816668ab07@147.135.37.118:26656"
+          }
+        },
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "Dropil-Chain-Echo",
+                    "identity": "",
+                    "website": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.040000000000000000",
+                    "max_rate": "1.000000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "drop1gf8sx74msuzhchqjmlm852w9jhpzpyse5g3w7h",
+                  "validator_address": "dropvaloper1gf8sx74msuzhchqjmlm852w9jhpzpyse55esmf",
+                  "pubkey": "dropvalconspub1zcjduepquv4mkepatpsj8ha4qxwdm6usxvw4ry6xr77qqxnnelwnt868n3uqqxk08p",
+                  "value": {
+                    "denom": "udrop",
+                    "amount": "37500000000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "A1RnwIVdoW4rhN4djMoY9ENBMowiCSaWM+mnQTLNADNj"
+                },
+                "signature": "hfK78aBujKT3y1Ix594lkWlf5AT4xxm35Ivim5AFhghHwtkMEpJ5rNZ928h3WDr7yW3x90EB7HXoFpJmCXV9rg=="
+              }
+            ],
+            "memo": "5f6bcbc5c8fcd57768acf8a0f9b27a0315b0a163@147.135.37.208:26656"
+          }
+        },
+        {
+          "type": "cosmos-sdk/StdTx",
+          "value": {
+            "msg": [
+              {
+                "type": "cosmos-sdk/MsgCreateValidator",
+                "value": {
+                  "description": {
+                    "moniker": "Dropil-Chain-Lyssa",
+                    "identity": "",
+                    "website": "",
+                    "details": ""
+                  },
+                  "commission": {
+                    "rate": "0.040000000000000000",
+                    "max_rate": "1.000000000000000000",
+                    "max_change_rate": "0.010000000000000000"
+                  },
+                  "min_self_delegation": "1",
+                  "delegator_address": "drop1wnfway754ze5w9hxtwk0qtgdgg5hp59ld82wtl",
+                  "validator_address": "dropvaloper1wnfway754ze5w9hxtwk0qtgdgg5hp59ldmzswp",
+                  "pubkey": "dropvalconspub1zcjduepq6kkk2knyrmgxvke8h074g93trpx4eccm0f2z0mpmn2l9wqwpcaxswx0agv",
+                  "value": {
+                    "denom": "udrop",
+                    "amount": "37500000000000"
+                  }
+                }
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas": "200000"
+            },
+            "signatures": [
+              {
+                "pub_key": {
+                  "type": "tendermint/PubKeySecp256k1",
+                  "value": "AmmaxA7JZfpIdeLnYErlpG6GS0wlNDmihPnYKyn4iZ09"
+                },
+                "signature": "RvZHQW5bHcvzhxQtO9AbWnPH2b1NMmmYQ7FVCgimip0kTVWV55iL51xyOBDEyaaFTL13Xyqke6+MMFWJuIiqPw=="
+              }
+            ],
+            "memo": "e739e2e4702d70e10ff24d95a05aa4fb5e72503b@147.135.37.233:26656"
+          }
+        },
         {
           "type": "cosmos-sdk/StdTx",
           "value": {
@@ -185,7 +327,7 @@
                   "min_self_delegation": "1",
                   "delegator_address": "drop1rw44f7yvqhasd2mm4x2f46c806f6q6lag3wk0e",
                   "validator_address": "dropvaloper1rw44f7yvqhasd2mm4x2f46c806f6q6lagdxg28",
-                  "pubkey": "dropvalconspub1zcjduepqe98thmqfmnmfhtuym35afkfd7f6eaw8r6xr9stdq4qx4utw2vd9qyam2s6",
+                  "pubkey": "dropvalconspub1zcjduepq04x4juxxzkca77egfmfdkd6rurerlfeu9jpxrh7lpl26yywrt0uq9xul7c",
                   "value": {
                     "denom": "udrop",
                     "amount": "37500000000000"
@@ -203,163 +345,35 @@
                   "type": "tendermint/PubKeySecp256k1",
                   "value": "A0yUU7CAmJfj4IiYh7T7cDa7nlejWaxZwVh2FXoHdLWl"
                 },
-                "signature": "x2qs6m9gxzbO8GeBckZbREDvy7fOkdea2DmboEXZ4OQNrq5olrtkiSPMyDSMD2/iK94s3VQsfospAiMaXxEEbQ=="
+                "signature": "v75bkheXHRTjwpYMCr3aS5HJZMmHPhYl1B88q1aj3CRWhPJ+S5dZAH6aEk9HJuFBHEWs68Bz3wli31YMY3RbgA=="
               }
             ],
-            "memo": "2fd3136f597762129cef11847f30f7e86370331d@147.135.37.119:26656"
-          }
-        },
-        {
-          "type": "cosmos-sdk/StdTx",
-          "value": {
-            "msg": [
-              {
-                "type": "cosmos-sdk/MsgCreateValidator",
-                "value": {
-                  "description": {
-                    "moniker": "Dropil-Chain-Ismene",
-                    "identity": "",
-                    "website": "",
-                    "details": ""
-                  },
-                  "commission": {
-                    "rate": "0.040000000000000000",
-                    "max_rate": "1.000000000000000000",
-                    "max_change_rate": "0.010000000000000000"
-                  },
-                  "min_self_delegation": "1",
-                  "delegator_address": "drop1gf8sx74msuzhchqjmlm852w9jhpzpyse5g3w7h",
-                  "validator_address": "dropvaloper1gf8sx74msuzhchqjmlm852w9jhpzpyse55esmf",
-                  "pubkey": "dropvalconspub1zcjduepq3clrzvm3536xkemzv0sferkz69thk7qwnnly5lxyrdemkty4r39ssjnn7q",
-                  "value": {
-                    "denom": "udrop",
-                    "amount": "37500000000000"
-                  }
-                }
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas": "200000"
-            },
-            "signatures": [
-              {
-                "pub_key": {
-                  "type": "tendermint/PubKeySecp256k1",
-                  "value": "A1RnwIVdoW4rhN4djMoY9ENBMowiCSaWM+mnQTLNADNj"
-                },
-                "signature": "KEfOEGTP87vKoI9/jOoL877+/Syb7CKR0+XYE/cNfSo1VwBMlLH+3kKYkm3/29KBxHXmPD3zL7IpI9uowo0G+g=="
-              }
-            ],
-            "memo": "4d361d3089212a7824fdb17da3534b0c886ca81c@147.135.37.208:26656"
-          }
-        },
-        {
-          "type": "cosmos-sdk/StdTx",
-          "value": {
-            "msg": [
-              {
-                "type": "cosmos-sdk/MsgCreateValidator",
-                "value": {
-                  "description": {
-                    "moniker": "Dropil-Chain-Ismene",
-                    "identity": "",
-                    "website": "",
-                    "details": ""
-                  },
-                  "commission": {
-                    "rate": "0.040000000000000000",
-                    "max_rate": "1.000000000000000000",
-                    "max_change_rate": "0.010000000000000000"
-                  },
-                  "min_self_delegation": "1",
-                  "delegator_address": "drop1wnfway754ze5w9hxtwk0qtgdgg5hp59ld82wtl",
-                  "validator_address": "dropvaloper1wnfway754ze5w9hxtwk0qtgdgg5hp59ldmzswp",
-                  "pubkey": "dropvalconspub1zcjduepqc973j8sumq2naa6ftegqfvh2jja7nmqw0uepeang8vhd4w4rm2sqj4ldqm",
-                  "value": {
-                    "denom": "udrop",
-                    "amount": "37500000000000"
-                  }
-                }
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas": "200000"
-            },
-            "signatures": [
-              {
-                "pub_key": {
-                  "type": "tendermint/PubKeySecp256k1",
-                  "value": "AmmaxA7JZfpIdeLnYErlpG6GS0wlNDmihPnYKyn4iZ09"
-                },
-                "signature": "EYSlNh+ZI/VhpztG3jQKap5/B/92qPqHfIUFeyJKKuAUN6ga4Fo+qtVYdVINykID4QUGGBwHXp2Aa1TJJqi6Lg=="
-              }
-            ],
-            "memo": "dae0a49e8c3828df21072469c01c81373e59c708@147.135.37.233:26656"
-          }
-        },
-        {
-          "type": "cosmos-sdk/StdTx",
-          "value": {
-            "msg": [
-              {
-                "type": "cosmos-sdk/MsgCreateValidator",
-                "value": {
-                  "description": {
-                    "moniker": "Dropil-Chain-Ismene",
-                    "identity": "",
-                    "website": "",
-                    "details": ""
-                  },
-                  "commission": {
-                    "rate": "0.040000000000000000",
-                    "max_rate": "1.000000000000000000",
-                    "max_change_rate": "0.010000000000000000"
-                  },
-                  "min_self_delegation": "1",
-                  "delegator_address": "drop16h69xvs8ejfkldc0g9y9zarmg2e3shvam4f5c7",
-                  "validator_address": "dropvaloper16h69xvs8ejfkldc0g9y9zarmg2e3shvamfp2aq",
-                  "pubkey": "dropvalconspub1zcjduepqgcftggh8ppwqdj54vqj3l0uxpmj9te9jvzlcdlskl2svl5usr0aqzzus28",
-                  "value": {
-                    "denom": "udrop",
-                    "amount": "37500000000000"
-                  }
-                }
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas": "200000"
-            },
-            "signatures": [
-              {
-                "pub_key": {
-                  "type": "tendermint/PubKeySecp256k1",
-                  "value": "AiDMktlhce7i9r48aTij75kd3tHZlYhrv/UeI2XN14jt"
-                },
-                "signature": "pEvWH/KrHOmH57aI89RR6DeX7Ub+mnfuGqmXJEUP7MIq5qJ4UBYvhyMOPGn/YEiG4QftuXMzOeUKeIF+rLKrdw=="
-              }
-            ],
-            "memo": "f04587f8e81dc6021afbd962a5fa6ad64d059825@147.135.37.118:26656"
+            "memo": "f9491bbb9863d16c6c77cca6c158fcb010047232@147.135.37.119:26656"
           }
         }
       ]
     },
-    "staking": {
+    "crisis": {
+      "constant_fee": {
+        "denom": "udrop",
+        "amount": "100000000000"
+      }
+    },
+    "bank": {
+      "send_enabled": true
+    },
+    "params": null,
+    "slashing": {
       "params": {
-        "unbonding_time": "1814400000000000",
-        "max_validators": 100,
-        "max_entries": 7,
-        "bond_denom": "udrop"
+        "max_evidence_age": "120000000000",
+        "signed_blocks_window": "10000",
+        "min_signed_per_window": "0.050000000000000000",
+        "downtime_jail_duration": "600000000000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.000100000000000000"
       },
-      "last_total_power": "0",
-      "last_validator_powers": null,
-      "validators": null,
-      "delegations": null,
-      "unbonding_delegations": null,
-      "redelegations": null,
-      "exported": false
+      "signing_infos": {},
+      "missed_blocks": {}
     },
     "mint": {
       "minter": {
@@ -375,37 +389,23 @@
         "blocks_per_year": "6311520"
       }
     },
-    "crisis": {
-      "constant_fee": {
-        "denom": "udrop",
-        "amount": "100000000000"
-      }
-    },
-    "gov": {
-      "starting_proposal_id": "1",
-      "deposits": null,
-      "votes": null,
-      "proposals": null,
-      "deposit_params": {
-        "min_deposit": [
-          {
-            "denom": "udrop",
-            "amount": "300000000"
-          }
-        ],
-        "max_deposit_period": "172800000000000"
-      },
-      "voting_params": {
-        "voting_period": "172800000000000"
-      },
-      "tally_params": {
-        "quorum": "0.334000000000000000",
-        "threshold": "0.500000000000000000",
-        "veto": "0.334000000000000000"
-      }
-    },
     "supply": {
       "supply": []
+    },
+    "staking": {
+      "params": {
+        "unbonding_time": "1814400000000000",
+        "max_validators": 100,
+        "max_entries": 7,
+        "bond_denom": "udrop"
+      },
+      "last_total_power": "0",
+      "last_validator_powers": null,
+      "validators": null,
+      "delegations": null,
+      "unbonding_delegations": null,
+      "redelegations": null,
+      "exported": false
     }    
   }
 }
